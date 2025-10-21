@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PaperSleekPDF</title>
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="PaperSleekPDF logo" class="logo" />
+      <span class="title">PaperSleekPDF</span>
+    </div>
+  </header>
+
+  <section id="upload-zone">
+    <p>📂 Drag & Drop PDFs here or choose files</p>
+    <input type="file" id="fileInput" accept="application/pdf" multiple />
+  </section>
+
+  <main>
+    <div id="viewer">
+      <canvas id="pdfCanvas"></canvas>
+      <div id="controls">
+        <button id="prevPage">◀</button>
+        <span id="pageInfo"></span>
+        <button id="nextPage">▶</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://your-patron-page-link-here.com" target="_blank" class="support-btn">
+      💖 Support My Work
+    </a>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="src/app.js"></script>
+</body>
+    </html>
