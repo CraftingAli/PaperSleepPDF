@@ -1,0 +1,160 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+}
+
+.logo {
+  height: 48px;
+  margin-right: 1rem;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+#uploadArea {
+  max-width: 600px;
+  width: 90vw;
+  border: 3px dashed #4da6ff;
+  border-radius: 14px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: border-color 0.3s ease;
+}
+
+#uploadArea:focus,
+#uploadArea:hover {
+  border-color: #80c1ff;
+  outline: none;
+}
+
+#uploadArea p {
+  font-size: 1.2rem;
+  user-select: none;
+}
+
+#fileInput {
+  display: none;
+}
+
+#viewerSection {
+  max-width: 720px;
+  width: 90vw;
+  text-align: center;
+}
+
+canvas {
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+  max-width: 100%;
+  height: auto;
+  background: #fff;
+}
+
+nav {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+button {
+  background-color: #0056d2;
+  border: none;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  user-select: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-width: 100px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled),
+#uploadArea:hover {
+  background-color: #0068ff;
+}
+
+#pageInfo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  min-width: 8rem;
+}
+
+footer {
+  padding: 1rem 0;
+  text-align: center;
+  background: rgba(0,0,0,0.2);
+  box-shadow: inset 0 1px 4px rgba(255,255,255,0.1);
+}
+
+.patron-link {
+  background-color: #ffd700cc;
+  color: #000;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.patron-link:hover {
+  background-color: #ffda00ff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  button {
+    width: 100%;
+    min-width: auto;
+  }
+    }
