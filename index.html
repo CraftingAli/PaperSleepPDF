@@ -2,41 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PaperSleekPDF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PaperSleekPDF - Elegant In-Browser PDF Reader</title>
+
   <link rel="stylesheet" href="src/styles.css" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+
+  <!-- PDF.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js" defer></script>
+
+  <!-- Modular app scripts -->
+  <script type="module" src="src/app.js" defer></script>
+  <script type="module" src="src/db.js" defer></script>
+  <script type="module" src="src/ui.js" defer></script>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <img src="assets/Elegant logo for PageSleekPDF website" alt="PaperSleekPDF logo" class="logo" />
-      <span class="title">PaperSleekPDF</span>
-    </div>
+  <header>
+    <img src="assets/logo.png" alt="PaperSleekPDF Logo" class="logo" />
+    <h1>PaperSleekPDF</h1>
   </header>
 
-  <section id="upload-zone">
-    <p>📂 Drag & Drop PDFs here or choose files</p>
-    <input type="file" id="fileInput" accept="application/pdf" multiple />
-  </section>
-
   <main>
-    <div id="viewer">
-      <canvas id="pdfCanvas"></canvas>
-      <div id="controls">
-        <button id="prevPage">◀</button>
-        <span id="pageInfo"></span>
-        <button id="nextPage">▶</button>
-      </div>
-    </div>
+    <section 
+      id="uploadArea" 
+      tabindex="0" 
+      aria-label="Upload PDF files"
+      role="button"
+      aria-describedby="uploadInstructions"
+    >
+      <p id="uploadInstructions">
+        Drag and drop your PDFs here or click to select multiple PDF files
+      </p>
+      <input 
+        type="file" 
+        id="fileInput" 
+        accept="application/pdf" 
+        multiple 
+        aria-hidden="true"
+        tabindex="-1"
+      />
+    </section>
+
+    <section id="viewerSection" aria-live="polite" aria-label="PDF Viewer">
+      <canvas id="pdfCanvas" aria-describedby="pageInfo" role="img"></canvas>
+
+      <nav aria-label="Page navigation">
+        <button id="prevPage" aria-label="Previous page" disabled>Previous</button>
+        <span id="pageInfo" aria-live="polite" aria-atomic="true">Page 0 of 0</span>
+        <button id="nextPage" aria-label="Next page" disabled>Next</button>
+      </nav>
+    </section>
   </main>
 
   <footer>
-    <a href="https://your-patron-page-link-here.com" target="_blank" class="support-btn">
-      💖 Support My Work
+    <a 
+      href="https://buymeacoffee.com/yourname" 
+      class="patron-link" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      aria-label="Support my work"
+    >
+      Support My Work
     </a>
   </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="src/app.js"></script>
 </body>
-    </html>
+</html>
